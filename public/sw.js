@@ -77,7 +77,7 @@ const API_CACHE_NAME = "api-cache"; // Cache for API responses
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js");
 
 workbox.routing.registerRoute(
-  new RegExp("^https://staging.multiqos.com:8012/api/v1/user/"), // Match the API route
+  new RegExp("https://staging.multiqos.com:8012/api/v1/user/"), // Match the API route
   new workbox.strategies.NetworkFirst({
     cacheName: API_CACHE_NAME,
     plugins: [

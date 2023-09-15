@@ -24,7 +24,7 @@ if (workbox.navigationPreload.isSupported()) {
 
 // Cache API responses using a NetworkFirst strategy
 workbox.routing.registerRoute(
-    new RegExp('/api/*'), // Adjust the RegExp to match your API endpoints
+    new RegExp('/api/v1/user/'), // Adjust the RegExp to match your API endpoints
     new workbox.strategies.NetworkFirst({
       cacheName: API,
       plugins: [

@@ -125,8 +125,13 @@ self.addEventListener("fetch", (event) => {
           return networkResp;
         } catch (error) {
           const cache = await caches.open(CACHE_NAME);
+          const apicache = await caches.open(API_CACHE_NAME);
           const cachedResp = await cache.match("/ToDo-replace-this-name.html");
-          return cachedResp;
+    
+          return {
+            cachedResp,
+            apicache
+          };
         }
       })()
     );

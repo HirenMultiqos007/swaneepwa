@@ -22,18 +22,25 @@ if (workbox.navigationPreload.isSupported()) {
   workbox.navigationPreload.enable();
 }
 
+const BASE_URL = 'https://staging.multiqos.com:8012';
+
 // Cache API responses using a NetworkFirst strategy
 workbox.routing.registerRoute(
-    new RegExp('/api/v1/user/'), // Adjust the RegExp to match your API endpoints
-    new workbox.strategies.NetworkFirst({
-      cacheName: API,
-      plugins: [
-        new workbox.cacheableResponse.CacheableResponsePlugin({
-          statuses: [0, 200], // Cache responses with status 0 and 200 (you can adjust this as needed)
-        }),
-      ],
-    })
-  );
+  new RegExp('^' + escapeRegExp(BASE_URL) + '/api/'),
+  new workbox.strategies.NetworkFirst({
+    cacheName: CACHE,
+    plugins: [
+      new workbox.cacheableResponse.CacheableResponsePlugin({
+        statuses: [0, 200], // Cache responses with status 0 and 200 (you can adjust this as needed)
+      }),
+    ],
+  })
+);
+
+// Helper function to escape special characters in a string for use in a regular expression
+function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
 
 workbox.routing.registerRoute(
   new RegExp('/*'),

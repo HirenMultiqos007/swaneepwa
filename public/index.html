@@ -12,6 +12,11 @@
         <link href="%PUBLIC_URL%/logo192.png" rel="apple-touch-icon" />
         <link href="%PUBLIC_URL%/manifest.json" rel="manifest" />
         <title>Shop Luxury Indian Designer Ethnic Clothing Website</title>
+        <script>
+            if (typeof navigator.serviceWorker !== 'undefined') {
+              navigator.serviceWorker.register('sw.js')
+            }
+          </script>
     </head>
     <body>
         <noscript>Shop Luxury Indian Designer Ethnic Clothing Website</noscript>

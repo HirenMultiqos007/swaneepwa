@@ -71,75 +71,61 @@
 //   }
 // });
 
+const CACHE_NAME = "my-cache"; // Change this to a unique name
+const API_CACHE_NAME = "api-cache"; // Cache for API responses
 
-const CACHE = "pwabuilder-offline-page";
-const API_CACHE = "api-data";
-
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
-
-const offlineFallbackPage = "ToDo-replace-this-name.html";
-
-self.addEventListener("message", (event) => {
-  if (event.data && event.data.type === "SKIP_WAITING") {
-    self.skipWaiting();
-  }
-});
-
-self.addEventListener('install', async (event) => {
-  event.waitUntil(
-    caches.open(CACHE)
-      .then((cache) => cache.add(offlineFallbackPage))
-  );
-});
-
-if (workbox.navigationPreload.isSupported()) {
-  workbox.navigationPreload.enable();
-}
-
-// Define the API route URL
-const API_URL = 'https://staging.multiqos.com:8012/api/v1/user/';
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js");
 
 workbox.routing.registerRoute(
-  new RegExp(`^${API_URL}`), // Match all routes starting with the API base URL
+  new RegExp("^https://staging.multiqos.com:8012/api/v1/user/"), // Match the API route
   new workbox.strategies.NetworkFirst({
-    cacheName: API_CACHE,
+    cacheName: API_CACHE_NAME,
     plugins: [
-      new workbox.cacheableResponse.CacheableResponsePlugin({
-        statusCode: [0, 200], // Cache responses with status 0 and 200 (you can adjust this as needed)
-      }),
+      {
+        cacheWillUpdate: async ({ response }) => {
+          // Check if the response has a 'statusCode' header and its value is 200
+          const headers = response.headers;
+          const statusCode = headers.get("statusCode");
+          
+          if (statusCode && statusCode === "200") {
+            // Cache the response
+            return response;
+          } else {
+            // Do not cache the response
+            return null;
+          }
+        },
+      },
     ],
   })
 );
 
-function escapeRegExp(string) {
-  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
 workbox.routing.registerRoute(
-  new RegExp('/*'),
+  new RegExp("/*"),
   new workbox.strategies.StaleWhileRevalidate({
-    cacheName: CACHE
+    cacheName: CACHE_NAME,
   })
 );
 
-self.addEventListener('fetch', (event) => {
-  if (event.request.mode === 'navigate') {
-    event.respondWith((async () => {
-      try {
-        const preloadResp = await event.preloadResponse;
+self.addEventListener("fetch", (event) => {
+  if (event.request.mode === "navigate") {
+    event.respondWith(
+      (async () => {
+        try {
+          const preloadResp = await event.preloadResponse;
 
-        if (preloadResp) {
-          return preloadResp;
+          if (preloadResp) {
+            return preloadResp;
+          }
+
+          const networkResp = await fetch(event.request);
+          return networkResp;
+        } catch (error) {
+          const cache = await caches.open(CACHE_NAME);
+          const cachedResp = await cache.match("/ToDo-replace-this-name.html");
+          return cachedResp;
         }
-
-        const networkResp = await fetch(event.request);
-        return networkResp;
-      } catch (error) {
-
-        const cache = await caches.open(CACHE);
-        const cachedResp = await cache.match(offlineFallbackPage);
-        return cachedResp;
-      }
-    })());
+      })()
+    );
   }
 });

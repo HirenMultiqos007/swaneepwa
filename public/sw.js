@@ -127,7 +127,7 @@ self.addEventListener("fetch", (event) => {
           const cache = await caches.open(CACHE_NAME);
           const apicache = await caches.open(API_CACHE_NAME);
           const cachedResp = await cache.match("/ToDo-replace-this-name.html");
-          const apicacheResp = await cache.match("/Helloo")
+          const apicacheResp = await apicache.match("/Helloo")
           return {
             cachedResp,
             apicacheResp

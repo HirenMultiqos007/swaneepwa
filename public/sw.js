@@ -74,7 +74,9 @@
 const CACHE_NAME = "my-cache"; // Change this to a unique name
 const API_CACHE_NAME = "api-cache"; // Cache for API responses
 
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js");
+importScripts(
+    'https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-sw.js'
+  );
 
 workbox.routing.registerRoute(
   new RegExp("https://staging.multiqos.com:8012/api/v1/user/"), // Match the API route
@@ -106,6 +108,7 @@ workbox.routing.registerRoute(
   new workbox.strategies.StaleWhileRevalidate({
     cacheName: CACHE_NAME,
   })
+
 );
 
 self.addEventListener("fetch", (event) => {

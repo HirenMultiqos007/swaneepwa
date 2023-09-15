@@ -26,7 +26,7 @@ const BASE_URL = 'https://staging.multiqos.com:8012';
 
 // Cache API responses using a NetworkFirst strategy
 workbox.routing.registerRoute(
-  new RegExp('^' + escapeRegExp(BASE_URL) + '/api/'),
+  new RegExp('^' + escapeRegExp(BASE_URL) + '/api/*'),
   new workbox.strategies.NetworkFirst({
     cacheName: API,
     plugins: [

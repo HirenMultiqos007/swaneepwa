@@ -1,0 +1,204 @@
+{
+  "header": {
+    "searchplaceholder": "Search for products and more",
+    "becomeseller": "Become a Seller",
+    "new": "New",
+    "lehengas": "Lehengas",
+    "saree": "Sarees",
+    "kurtiset": "Kurti Set",
+    "dress": "Dress",
+    "western": "Western",
+    "accessories": "Accessories",
+    "store": "Store",
+    "sherwanis": "Sherwanis",
+    "kurtaset": "Kurta Set",
+    "shirts": "Shirts",
+    "indowestern": "Indo-Western"
+  },
+  "signinmodal": {
+    "title": " Sign in",
+    "email": "Email",
+    "password": "Password",
+    "forgotpassword": "Forgot password?",
+    "donthaveaccount": "Don’t have an account? ",
+    "signup": "Sign up"
+  },
+  "signupmodal": {
+    "title": "Sign up",
+    "fname": "First Name",
+    "lname": "Last Name",
+    "email": "Email Address",
+    "phoneno": "Phone No",
+    "password": "Password",
+    "confirmpassword": "Confirm Password",
+    "iaccept": "I accept all the",
+    "terms": "Terms & Condition",
+    "and": "and",
+    "privacypolicy": "Privacy Policy",
+    "alredyaccount": "Already have an account? ",
+    "signin": "Sign in"
+  },
+  "forgotmodal": {
+    "title": "Forgot Password",
+    "resetpassword": "Reset Password"
+  },
+  "resetmodal": {
+    "title": "Reset Password",
+    "newpassword": "New Password",
+    "confirmpassword": "Confirm Password"
+  },
+  "myaccount": {
+    "title": "My Account",
+    "personaldetails": "Personal Details",
+    "orderhistory": "Order History",
+    "myaddress": " My Address",
+    "mywishlist": "My Wishlist",
+    "notification": "Notification",
+    "settings": "Settings",
+    "logout": "Logout",
+    "personaldetail": {
+      "title": "Personal Details",
+      "save": "Save"
+    },
+    "orderhistorys": {
+      "title": "Order History",
+      "filter": "Filter",
+      "orderid": "Orders ID",
+      "deliverydate": "Expected Delivery Date",
+      "status": "Status",
+      "qty": "Qty",
+      "price": "Price",
+      "trackorder": "Track Order",
+      "code": "Code",
+      "reorder": "Reorder"
+    },
+    "deliveryaddress": {
+      "title": "Delivery Address",
+      "addaddress": "Add Address"
+    },
+    "addaddress": {
+      "title": "Add Address",
+      "personaldetail": "Personal Details",
+      "addressdetail": "Address Details",
+      "houseno": "House no/Street Name",
+      "landmark": "Landmark/Area Name",
+      "city": "City",
+      "zipcode": "Zip Code",
+      "state": "State",
+      "country": "Country"
+    },
+    "setting": {
+      "changepassword": "Change Password",
+      "currentpassword": "Current Password"
+    },
+    "wishlist": {
+      "title": "Wishlist"
+    }
+  },
+  "homepage": {
+    "banner": {
+      "caption": "End  of Season SALE up to 80% off",
+      "title": "End of Season <br/>  <span>SALE</span> up to <br/> 80% off",
+      "btntxt": "Shop Now"
+    },
+    "shopinstagaram": {
+      "title": "Shop Instagram"
+    },
+    "weddingtales": {
+      "title": "Wedding Tales"
+    },
+    "inthebuzz": {
+      "title": "In The Buzz"
+    },
+    "offersfromdiscount": {
+      "title": "Offers From Discount"
+    },
+    "thejewelcabinet": {
+      "title": "The Jewel Cabinet"
+    },
+    "gentlemensjournal": {
+      "title": "Gentlemen’s Journal"
+    }
+  },
+  "productlisting": {
+    "clearall": "clear all",
+    "shop": "Shop",
+    "category": "Category",
+    "gender": "Gender",
+    "designer": "Designer",
+    "discount": "Discount",
+    "shippingtime":"Shipping Time",
+    "size":"Size",
+    "color":"Color",
+    "price":"Price",
+    "sortby": "Sort by",
+    "popular": "Popular",
+    "latest": "Latest",
+    "lowtohigh": "Price - Low to High",
+    "highttolow": "Price - High to Low",
+    "discounthighttolow": "Discount - High to Low"
+  },
+  "button": {
+    "viewbtn": "View All",
+    "shopnow": "Shop Now"
+  },
+  "footer": {
+    "aboutus": {
+      "title": "About us",
+      "purplestylelabs": "Purple Style Labs",
+      "perniaspopupshow": "Swanee's Show",
+      "studiolocator": "Studio Locator",
+      "magazine": "Magazine",
+      "perniaspopupblog": "Swanee's Blog"
+    },
+    "quicklinks": {
+      "title": "Quick Links",
+      "bestsellers": "Bestsellers",
+      "exclusive": "Exclusive",
+      "offers": "Offers",
+      "giftcards": "Gift Cards",
+      "celebritycloset": "Celebrity Closet",
+      "personalstyling": "Personal Styling",
+      "occasions": "Occasions"
+    },
+    "customercare": {
+      "title": "Customer Care",
+      "shippinginformation": "Shipping Information",
+      "returnsexchange": "Returns & Exchange",
+      "termsconditions": "Terms & Conditions",
+      "privacypolicies": "Privacy Policies",
+      "faqs": "Faqs",
+      "contactus": "Contact Us"
+    },
+    "contactus": {
+      "title": "Contact Us"
+    },
+    "followus": {
+      "title": "Follow Us"
+    },
+    "popupshopapp": {
+      "title": "Get Pernia’s Pop-Up Shop App",
+      "message": "We will send you a link on your Email or Phone,open it on your phone and download the app.",
+      "emailtext": "Email or Phone Number",
+      "emailbtntext": "App Link"
+    }
+  },
+  "signupValidation": {
+    "fname": "Please enter first name",
+    "lname": "Please enter last name",
+    "email": "Please enter email address",
+    "phoneno": "Please enter phone number",
+    "currentpassword": "Please enter your current password",
+    "password": "Please enter password",
+    "confirmpassword": "Please confirm password",
+    "termsandconditions": "You need to agree with terms and conditions",
+    "houseno": "Please enter your house number / street name",
+    "landmark": "Please enter landmark or area name",
+    "city": "Please provide city name",
+    "state": "Please select state name",
+    "zipcode": "Please enter zip code",
+    "country": "Please select your country",
+    "fullname":"Please enter your full name",
+    "reviews":"Please provide your review"
+  }
+}

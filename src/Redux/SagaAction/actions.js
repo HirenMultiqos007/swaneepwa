@@ -1,0 +1,61 @@
+//2
+export const USER_REGISTER = "USER_REGISTER";
+export const USER_LOGIN = "USER_LOGIN";
+
+export const USER_TOKEN = "USER_TOKEN";
+export const USER_VERIFY = "USER_VERIFY";
+export const USER_REVERIFY = "USER_REVERIFY";
+
+export const LOCAL_DATA = "LOCAL_DATA";
+export const SIGNIN_DATA = "SIGNIN_DATA";
+
+export const FORGOT_PASSWORD = "FORGOT_PASSWORD";
+export const RESET_PASSWORD = "RESET_PASSWORD";
+
+export const USER_LOGOUT = "USER_LOGOUT";
+
+export const SHOP_FILTER = "SHOP_FILTER";
+export const GET_SHOP_FILTER = "GET_SHOP_FILTER";
+export const REMOVE_FILTER = "REMOVE_FILTER";
+
+export const WISHLIST_ITEMS = "WISHLIST_ITEMS";
+export const ADD_TO_CART = "ADD_TO_CART";
+
+export const UPDATE_CART = "UPDATE_CART";
+export const DELETE_CART_PRODUCT = "DELETE_CART_PRODUCT";
+export const CART_QTY = "CART_QTY";
+
+export const INCREMENT = "INCREMENT";
+export const DECREMENT = "DECREMENT";
+
+export const CHECKEDITEMS = "CHECKEDITEMS";
+
+export const PROMO_CODE = "PROMO_CODE";
+
+export const PRODUCT_LIST = "PRODUCT_LIST";
+export const VIEW_PRODUCT = "VIEW_PRODUCT";
+
+export const PRODUCT_ID = "PRODUCT_ID";
+export const PRODUCT_DATA = "PRODUCT_DATA";
+
+export const ADD_REVIEW = "ADD_REVIEW";
+export const VIEW_REVIEW = "VIEW_REVIEW";
+
+export const VIEW_USER_PERSONAL_DETAILS = "VIEW_USER_PERSONAL_DETAILS";
+export const USER_DETAILS = "USER_DETAILS";
+export const ADD_EDIT_USER = "ADD_EDIT_USER";
+
+export const EDIT_USER_DETAILS = "EDIT_USER_DETAILS";
+
+export const CART_SUBTOTAL_PRICE = "CART_SUBTOTAL_PRICE";
+export const CART_TOTAL_AMOUNT_PRICE = "CART_TOTAL_AMOUNT_PRICE";
+
+export const ORDER_SUMMARY = "ORDER_SUMMARY";
+
+export const GUEST_USER = "GUEST_USER";
+export const FILTER_OBJECT = "FILTER_OBJECT";
+
+//GET Category
+
+export const GET_MAIN_CATEGORY = "GET_MAIN_CATEGORY"
+export const GET_SUB_CATEGORY = "GET_SUB_CATEGORY"

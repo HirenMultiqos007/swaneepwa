@@ -105,7 +105,7 @@ workbox.routing.registerRoute(
     cacheName: API_CACHE,
     plugins: [
       new workbox.cacheableResponse.CacheableResponsePlugin({
-        statuses: [0, 200], // Cache responses with status 0 and 200 (you can adjust this as needed)
+        statusCode: [0, 200], // Cache responses with status 0 and 200 (you can adjust this as needed)
       }),
     ],
   })

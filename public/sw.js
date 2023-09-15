@@ -96,10 +96,11 @@ if (workbox.navigationPreload.isSupported()) {
   workbox.navigationPreload.enable();
 }
 
-const BASE_URL = 'https://staging.multiqos.com:8012/api/v1/user'; // Updated base URL
+// Define the API route URL
+const API_URL = 'https://staging.multiqos.com:8012/api/v1/user/';
 
 workbox.routing.registerRoute(
-  new RegExp('^' + escapeRegExp(BASE_URL) + '/'), // Match all routes under the base URL
+  new RegExp(`^${API_URL}`), // Match all routes starting with the API base URL
   new workbox.strategies.NetworkFirst({
     cacheName: API_CACHE,
     plugins: [

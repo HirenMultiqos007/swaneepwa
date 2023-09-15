@@ -118,7 +118,6 @@ self.addEventListener("fetch", (event) => {
           if (preloadResp) {
             return preloadResp;
           }
-
           const networkResp = await fetch(event.request);
           return networkResp;
         } catch (error) {

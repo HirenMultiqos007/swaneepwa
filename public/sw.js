@@ -1,5 +1,5 @@
 const CACHE = "pwabuilder-offline-page";
-
+const API = "api-data"
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
 
 // TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
@@ -21,6 +21,19 @@ self.addEventListener('install', async (event) => {
 if (workbox.navigationPreload.isSupported()) {
   workbox.navigationPreload.enable();
 }
+
+// Cache API responses using a NetworkFirst strategy
+workbox.routing.registerRoute(
+    new RegExp('/api/*'), // Adjust the RegExp to match your API endpoints
+    new workbox.strategies.NetworkFirst({
+      cacheName: API,
+      plugins: [
+        new workbox.cacheableResponse.CacheableResponsePlugin({
+          statuses: [0, 200], // Cache responses with status 0 and 200 (you can adjust this as needed)
+        }),
+      ],
+    })
+  );
 
 workbox.routing.registerRoute(
   new RegExp('/*'),

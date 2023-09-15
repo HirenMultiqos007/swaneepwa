@@ -8,7 +8,7 @@ import "./assets/css/style.scss";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./Redux/store";
-import {sw} from './sw.js'
+import swDev from "./swDev";
 // import { PersistGate } from "redux-persist/integration/react";
 // import { persistStore } from "redux-persist";
 // let persistor = persistStore(store);
@@ -24,4 +24,4 @@ root.render(
   </Provider>
 );
 
-sw();
+swDev()

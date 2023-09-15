@@ -83,6 +83,7 @@ workbox.routing.registerRoute(
     plugins: [
       {
         cacheWillUpdate: async ({ response }) => {
+            alert()
           // Check if the response has a 'statusCode' header and its value is 200
           const headers = response.headers;
           const statusCode = headers.get("statusCode");

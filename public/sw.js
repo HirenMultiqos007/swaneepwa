@@ -62,7 +62,6 @@ self.addEventListener('fetch', (event) => {
         const networkResp = await fetch(event.request);
         return networkResp;
       } catch (error) {
-
         const cache = await caches.open(CACHE);
         const cachedResp = await cache.match(offlineFallbackPage);
         return cachedResp;
@@ -70,3 +69,22 @@ self.addEventListener('fetch', (event) => {
     })());
   }
 });
+
+self.addEventListener("fetch", (event) => {
+  // We only want to call event.respondWith() if this is a GET request for an HTML document.
+  if (
+    event.request.method === "GET" &&
+    event.request.headers.get("accept").includes("text/html")
+  ) {
+    console.log("Handling fetch event for", event.request.url);
+    event.respondWith(
+      fetch(event.request).catch((e) => {
+        console.error("Fetch failed; returning offline page instead.", e);
+        return caches
+          .open(OFFLINE_CACHE)
+          .then((cache) => cache.match(OFFLINE_URL));
+      }),
+    );
+  }
+});
+

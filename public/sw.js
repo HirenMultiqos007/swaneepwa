@@ -77,7 +77,7 @@ self.addEventListener("fetch", (event) => {
   //   event.request.method === "POST" &&
   //   event.request.headers.get("accept").includes("text/html")
   // ) {
-    console.log("Handling fetch event for", event.request.url);
+    console.warn("Handling fetch event for", event.request.url);
     event.respondWith(
       fetch(event.request).catch((e) => {
         console.error("Fetch failed; returning offline page instead.", e);

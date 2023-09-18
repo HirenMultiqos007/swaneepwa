@@ -50,6 +50,7 @@ workbox.routing.registerRoute(
 );
 
 self.addEventListener('fetch', (event) => {
+  console.warn("fetch")
   if (event.request.mode === 'navigate') {
     event.respondWith((async () => {
       try {
@@ -71,7 +72,7 @@ self.addEventListener('fetch', (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
-  console.log("API")
+  console.warn("API")
   // We only want to call event.respondWith() if this is a GET request for an HTML document.
   if (
     event.request.method === "POST" &&

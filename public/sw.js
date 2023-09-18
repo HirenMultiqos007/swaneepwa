@@ -37,42 +37,6 @@ workbox.routing.registerRoute(
   })
 );
 
-// BACKGROUND SYNC
-
-const messageAboutFailPlugin = {
-  fetchDidFail: async ({ originalRequest, request, error, event, state }) => {
-    messageClient(event, 'REQUEST_FAILED');
-  },
-};
-
-
-// Instantiating and configuring plugin
-const bgSyncPlugin = new BackgroundSyncPlugin('feedbackQueue', {
-  maxRetentionTime: 24 * 60, // Retry for max of 24 Hours (specified in minutes)
-
-  onSync: async ({ queue }) => {
-    // Run standard replay
-    await queue.replayRequests();
-
-    self.clients.matchAll().then((clients) => {
-      clients.forEach((client) =>
-        client.postMessage({ type: 'REPLAY_COMPLETED' })
-      );
-    });
-  },
-});
-
-
-
-// Registering a route for retries
-registerRoute(
-  ({ url }) => url.pathname.startsWith('https://staging.multiqos.com:8012/api/v1/user/'),
-  new NetworkFirst({
-    plugins: [bgSyncPlugin, messageAboutFailPlugin],
-  }),
-  'POST'
-);
-
 // Helper function to escape special characters in a string for use in a regular expression
 function escapeRegExp(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');

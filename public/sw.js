@@ -71,6 +71,7 @@
 //   }
 // });
 
+
 const CACHE_NAME = "my-cache"; // Change this to a unique name
 
 importScripts(
@@ -79,7 +80,7 @@ importScripts(
 
 workbox.routing.registerRoute(
   new RegExp("^https://staging.multiqos.com:8012/api/v1/user/"), // Match the API route
-  new workbox.strategies.NetworkFirst({
+  new workbox.strategies.StaleWhileRevalidate({
     cacheName: CACHE_NAME,
     plugins: [
       {

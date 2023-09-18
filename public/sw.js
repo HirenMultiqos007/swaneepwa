@@ -73,10 +73,10 @@ self.addEventListener('fetch', (event) => {
 self.addEventListener("fetch", (event) => {
   console.warn("API")
   // We only want to call event.respondWith() if this is a GET request for an HTML document.
-  if (
-    event.request.method === "POST" &&
-    event.request.headers.get("accept").includes("text/html")
-  ) {
+  // if (
+  //   event.request.method === "POST" &&
+  //   event.request.headers.get("accept").includes("text/html")
+  // ) {
     console.log("Handling fetch event for", event.request.url);
     event.respondWith(
       fetch(event.request).catch((e) => {
@@ -86,6 +86,6 @@ self.addEventListener("fetch", (event) => {
           .then((cache) => cache.match(API));
       }),
     );
-  }
+  // }
 });
 

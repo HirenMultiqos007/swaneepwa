@@ -66,7 +66,7 @@ const bgSyncPlugin = new BackgroundSyncPlugin('feedbackQueue', {
 
 // Registering a route for retries
 registerRoute(
-  ({ url }) => url.pathname.startsWith('/api/feedback'),
+  ({ url }) => url.pathname.startsWith('https://staging.multiqos.com:8012/api/v1/user/'),
   new NetworkFirst({
     plugins: [bgSyncPlugin, messageAboutFailPlugin],
   }),

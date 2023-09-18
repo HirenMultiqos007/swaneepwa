@@ -121,8 +121,14 @@ function* setProductList(params) {
     yield put(setProductListRequest());
     const data = yield requestApi.post("product/list", params?.payload);
     yield put(setProductListSuccess(data));
+    localStorage.setItem("OFFERLIST",JSON.stringify(data))
   } catch (e) {
-    yield put(setProductListFailure(e));
+    if(navigator.onLine){
+      yield put(setProductListFailure(e));
+    }else{
+      const OfferList = JSON.parse(localStorage.getItem("OFFERLIST"))
+      yield put(setProductListSuccess(OfferList));
+    }
   }
 }
 function* viewProductDetails(params) {

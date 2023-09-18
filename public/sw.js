@@ -62,7 +62,7 @@ self.addEventListener('fetch', (event) => {
         console.warn(networkResp,"networkResp")
         return networkResp;
       } catch (error) {
-        console.warn(error,"error")
+        alert(error)
         const cache = await caches.open(CACHE);
         console.warn(cache,"Cache");
         const cachedResp = await cache.match(offlineFallbackPage);

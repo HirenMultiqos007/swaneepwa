@@ -72,22 +72,22 @@ self.addEventListener('fetch', (event) => {
   }
 });
 
-self.addEventListener("fetch", (event) => {
-  console.warn("API")
-  // We only want to call event.respondWith() if this is a GET request for an HTML document.
-  // if (
-  //   event.request.method === "POST" &&
-  //   event.request.headers.get("accept").includes("text/html")
-  // ) {
-    console.warn("Handling fetch event for", event.request.url);
-    event.respondWith(
-      fetch(event.request).catch((e) => {
-        console.warn("Fetch failed; returning offline page instead.", e);
-        return caches
-          .open(API)
-          .then((cache) => cache.match(API));
-      }),
-    );
-  // }
-});
+// self.addEventListener("fetch", (event) => {
+//   console.warn("API")
+//   // We only want to call event.respondWith() if this is a GET request for an HTML document.
+//   // if (
+//   //   event.request.method === "POST" &&
+//   //   event.request.headers.get("accept").includes("text/html")
+//   // ) {
+//     console.warn("Handling fetch event for", event.request.url);
+//     event.respondWith(
+//       fetch(event.request).catch((e) => {
+//         console.warn("Fetch failed; returning offline page instead.", e);
+//         return caches
+//           .open(API)
+//           .then((cache) => cache.match(API));
+//       }),
+//     );
+//   // }
+// });
 

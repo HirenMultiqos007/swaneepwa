@@ -50,7 +50,6 @@ workbox.routing.registerRoute(
 );
 
 self.addEventListener('fetch', (event) => {
-  console.warn("fetch")
   if (event.request.mode === 'navigate') {
     event.respondWith((async () => {
       try {

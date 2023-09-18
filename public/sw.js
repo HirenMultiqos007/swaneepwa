@@ -80,7 +80,7 @@ self.addEventListener("fetch", (event) => {
     console.warn("Handling fetch event for", event.request.url);
     event.respondWith(
       fetch(event.request).catch((e) => {
-        console.error("Fetch failed; returning offline page instead.", e);
+        console.warn("Fetch failed; returning offline page instead.", e);
         return caches
           .open(API)
           .then((cache) => cache.match(API));

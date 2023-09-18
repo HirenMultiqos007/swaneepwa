@@ -58,8 +58,8 @@ self.addEventListener('fetch', (event) => {
         if (preloadResp) {
           return preloadResp;
         }
-
         const networkResp = await fetch(event.request);
+        console.warn(networkResp,"networkResp")
         return networkResp;
       } catch (error) {
         const cache = await caches.open(CACHE);

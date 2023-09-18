@@ -87,7 +87,9 @@ $dark-green: #00ab11;
     opacity: 1;
   }
 }
-
+html,body{
+  overscroll-behavior-y: contain;
+}
 /* global css*/
 body {
   font-family: "Inter";

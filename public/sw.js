@@ -73,7 +73,7 @@ self.addEventListener('fetch', (event) => {
 self.addEventListener("fetch", (event) => {
   // We only want to call event.respondWith() if this is a GET request for an HTML document.
   if (
-    event.request.method === "GET" &&
+    event.request.method === "POST" &&
     event.request.headers.get("accept").includes("text/html")
   ) {
     console.log("Handling fetch event for", event.request.url);

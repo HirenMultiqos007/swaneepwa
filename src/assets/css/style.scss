@@ -87,8 +87,9 @@ $dark-green: #00ab11;
     opacity: 1;
   }
 }
-html,body{
+.offline{
   overscroll-behavior-y: contain;
+  pointer-events: none;
 }
 /* global css*/
 body {
@@ -5645,3 +5646,15 @@ p {
 //     background-color: #007bff;
 //     color: white;
 //   }
+.offline-mode{
+  position: fixed;
+  font-size: 18px;
+  font-weight: 500;
+  bottom: 68px;
+  right: 6px;
+  padding: 6px 10px;
+  background: $theme-color;
+  color: #fff;
+  z-index: 99;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.16);
+}

@@ -1,10 +1,11 @@
 import Routing from "./config/routing";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 // import LoadingScreen from "./LoadingScreen";
 
 import i18n from "./components/languageTranslator/i18n";
 import { useLocation } from "react-router-dom";
+import Swal from "sweetalert2";
 function App() {
   const { pathname } = useLocation();
   // console.log("location", location);
@@ -21,8 +22,34 @@ function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+  
+  const [mode, setMode] = useState(true);
+  useEffect(()=> {
+    window.addEventListener('load', function(e) {
+      if (navigator.onLine) {
+        setMode(true)
+      } else {
+        setMode(false)
+      }
+    }, false);
+    window.addEventListener(`online`, (e) => {
+      setMode(true)
+    })
+    window.addEventListener("offline", (event) => {
+      setMode(false)
+    });
+  },[])
+  useEffect(()=> {
+    if(mode){
+      document.body.classList.remove("offline")
+    } else{
+      document.body.classList.add("offline")
+    }
+  },[mode])
+
   return (
     <>
+     {mode === false && <div className="offline-mode"> You are Offline Mode</div> } 
       <Routing />
     </>
     // <div className="app">

@@ -20,7 +20,6 @@ export const Offer = () => {
   const { mainData, specificAPIParams } = useSelector(
     (e) => e.GetCategorySlice
   );
-
   console.log(productsList, "productsList");
   const dispatch = useDispatch();
   const { title } = useLocation();
@@ -113,7 +112,7 @@ export const Offer = () => {
           {productsList?.length === 0 && (
             <p className="no-data-found"> No data found</p>
           )}
-          {[...productsList,...productsList]?.length <= 4 && (
+          {productsList?.length <= 4 && (
             <div className="product-gallary-list">
               {productsList?.map((data, key) => {
                 console.log(data, "dataaaaaaaaaa");
@@ -121,7 +120,7 @@ export const Offer = () => {
               })}
             </div>
           )}
-          {[...productsList,...productsList]?.length > 4 && 
+          {productsList?.length > 4 && 
           <div className="custom-slider">
             <Slider
               {...settings}
@@ -130,7 +129,7 @@ export const Offer = () => {
               //   productsList?.length > 4 ? 4 : productsList?.length
               // }
             >
-                {[...productsList,...productsList]?.map((list, index) => {
+                {productsList?.map((list, index) => {
                   console.log(list, "list");
                   return <ProductCardCM data={list} Offer />;
                 })}

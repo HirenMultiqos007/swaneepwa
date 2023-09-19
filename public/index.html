@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link href="%PUBLIC_URL%/favicon.ico" rel="icon" />
-        <meta content="width=device-width, initial-scale=1" name="viewport" />
-        <meta content="#000000" name="theme-color" />
-        <meta
-            content="Web site created using create-react-app"
-            name="description"
-        />
-        <link href="%PUBLIC_URL%/logo192.png" rel="apple-touch-icon" />
-        <link href="%PUBLIC_URL%/manifest.json" rel="manifest" />
-        <title>Shop Luxury Indian Designer Ethnic Clothing Website</title>
-        <script>
-             if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js')
-        .then(() => {
-          console.log('service worker installed');
-        })
-        .catch(err => console.error('Error', err));
-    }  
-          </script>
-    </head>
-    <body>
-        <noscript>Shop Luxury Indian Designer Ethnic Clothing Website</noscript>
-        <div id="root"></div>
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <link href="%PUBLIC_URL%/favicon.ico" rel="icon" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="#000000" name="theme-color" />
+    <meta
+      content="Web site created using create-react-app"
+      name="description"
+    />
+    <link href="%PUBLIC_URL%/logo192.png" rel="apple-touch-icon" />
+    <link href="%PUBLIC_URL%/manifest.json" rel="manifest" />
+    <title>Shop Luxury Indian Designer Ethnic Clothing Website</title>
+
+  </head>
+  <body>
+    <noscript>Shop Luxury Indian Designer Ethnic Clothing Website</noscript>
+    <div id="root"></div>
+    <script>
+        if ("serviceWorker" in navigator) {
+          window.addEventListener('load',()=> {
+              navigator.serviceWorker.register("./sw.js")
+              .then((reg)=> console.warn("Success",reg.scope))
+              .catch((err)=> console.warn("Failure :", err))
+          })
+        }
+      </script>
+  </body>
 </html>

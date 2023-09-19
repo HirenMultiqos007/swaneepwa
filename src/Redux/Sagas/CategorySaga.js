@@ -13,19 +13,19 @@ function* getMainCategory(params) {
         if(typeof params.callback === "function"){
             yield params.callback(data?.[0]?._id)
         }
-        localStorage.setItem("MainCategory",JSON.stringify(data))
+        // localStorage.setItem("MainCategory",JSON.stringify(data))
     } catch (error) {
-        console.log(navigator.onLine,"navigator.onLine")
-        if(navigator.onLine){
+        // console.log(navigator.onLine,"navigator.onLine")
+        // if(navigator.onLine){
             yield put (userGetMainCategoryFailure(error))
-        }else{
-            const mainData =  JSON.parse(localStorage.getItem("MainCategory"))
-            yield put (userGetMainCategorySuccess(mainData))
-            if(typeof params.callback === "function"){
-             yield params.callback(mainData?.[0]?._id)
-         }
-             console.warn(error,"catch block Main Data")
-        }
+        // }else{
+        //     const mainData =  JSON.parse(localStorage.getItem("MainCategory"))
+        //     yield put (userGetMainCategorySuccess(mainData))
+        //     if(typeof params.callback === "function"){
+        //      yield params.callback(mainData?.[0]?._id)
+        //  }
+        //      console.warn(error,"catch block Main Data")
+        // }
     }
 }
 
@@ -37,18 +37,18 @@ try {
     if(typeof params.callback === "function"){
         yield params.callback(getCategoryData?.[0]?._id,getCategoryData?.[0]?.categoryName)
     }
-    localStorage.setItem("SubCategory",JSON.stringify(getCategoryData))
+    // localStorage.setItem("SubCategory",JSON.stringify(getCategoryData))
 } catch (error) {
-    if(navigator.onLine){
+    // if(navigator.onLine){
         yield put (userGetSubCategoryFailure(error))
-    }else{
-        const subData =  JSON.parse(localStorage.getItem("SubCategory"))
-            yield put (userGetSubCategorySuccess(subData))
-            if(typeof params.callback === "function"){
-                yield params.callback(subData?.[0]?._id,subData?.[0]?.categoryName)
-            }
-             console.warn(error,"catch block Sub Data")
-        }
+    // }else{
+    //     const subData =  JSON.parse(localStorage.getItem("SubCategory"))
+    //         yield put (userGetSubCategorySuccess(subData))
+    //         if(typeof params.callback === "function"){
+    //             yield params.callback(subData?.[0]?._id,subData?.[0]?.categoryName)
+    //         }
+    //          console.warn(error,"catch block Sub Data")
+    //     }
     }
 }
 

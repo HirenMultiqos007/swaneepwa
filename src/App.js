@@ -6,7 +6,22 @@ import { useSelector } from "react-redux";
 import i18n from "./components/languageTranslator/i18n";
 import { useLocation } from "react-router-dom";
 import Swal from "sweetalert2";
+import { fetchToken, onMessageListener } from "./firebase";
+import { Button, Toast } from "react-bootstrap";
 function App() {
+
+  const [show, setShow] = useState(false);
+  const [notification, setNotification] = useState({title: '', body: ''});
+  const [isTokenFound, setTokenFound] = useState(false);
+  fetchToken(setTokenFound);
+
+  onMessageListener().then(payload => {
+    setNotification({title: payload.notification.title, body: payload.notification.body})
+    setShow(true);
+    console.warn(payload);
+  }).catch(err => console.log('failed: ', err));
+
+
   const { pathname } = useLocation();
   // console.log("location", location);
   // const isRehydrating = useSelector((state) => state._persist.rehydrated); // Replace with the actual path to the rehydration status in your Redux store
@@ -46,9 +61,33 @@ function App() {
       document.body.classList.add("offline")
     }
   },[mode])
-
+// useEffect(()=> {
+//   const msg = firebase.messaging()
+//   msg.requestPermission().then(()=> {
+//     return msg.getToken()
+//   }).then((data)=> {
+//     console.warn("token",data)
+//   })
+// },[])
   return (
     <>
+       <Toast onClose={() => setShow(false)} show={show} delay={3000} autohide animation style={{
+          position: 'absolute',
+          top: 20,
+          right: 20,
+          minWidth: 200
+        }}>
+          <Toast.Header>
+            <img
+              src="holder.js/20x20?text=%20"
+              className="rounded mr-2"
+              alt=""
+            />
+            <strong className="mr-auto">{notification.title}</strong>
+            <small>just now</small>
+          </Toast.Header>
+          <Toast.Body>{notification.body}</Toast.Body>
+        </Toast>
      {mode === false && <div className="offline-mode"> You are Offline Mode</div> } 
       <Routing />
     </>

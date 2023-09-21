@@ -90,6 +90,7 @@ function App() {
         </Toast>
      {mode === false && <div className="offline-mode"> You are Offline Mode</div> } 
       <Routing />
+      <h1> helooo </h1>
     </>
     // <div className="app">
     //   {isRehydrating ? (
